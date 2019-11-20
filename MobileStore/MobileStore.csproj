@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\MyWCFService\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\MyWCFService\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
+  <Import Project="..\MyWCFService\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\MyWCFService\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7FA2CCB9-9386-4A29-B732-2A55CF81FC5F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MobileStore</RootNamespace>
+    <AssemblyName>MobileStore</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44304</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\MyWCFService\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\MyWCFService\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\MyWCFService\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\MyWCFService\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\MyWCFService\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\MyWCFService\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\MyWCFService\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\MyWCFService\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\MyWCFService\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\MyWCFService\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\MyWCFService\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\MyWCFService\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\MyWCFService\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\MyWCFService\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\MyWCFService\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\categoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\commentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\discountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\imageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\orderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\order_detailController.cs" />
+    <Compile Include="Areas\Admin\Controllers\postsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\productController.cs" />
+    <Compile Include="Areas\Admin\Controllers\reviewController.cs" />
+    <Compile Include="Areas\Admin\Controllers\usersController.cs" />
+    <Compile Include="Connected Services\AddService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\DeleteService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\EditService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\LoginService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ViewService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\APIController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ListProductController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Fucntions\Cart.cs" />
+    <Compile Include="Models\Fucntions\CartDetail.cs" />
+    <Compile Include="Models\Fucntions\Hash.cs" />
+    <Compile Include="Models\Fucntions\orderFnc.cs" />
+    <Compile Include="Models\Fucntions\order_detail.cs" />
+    <Compile Include="Models\Fucntions\productFnc.cs" />
+    <Compile Include="Models\Helper\SetupConnection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Upload\Admin\8db211334a98d285_7acfaf01b411f3cc_23826815225395418143215.jpg" />
+    <Content Include="App_Data\Upload\Admin\avt.jpg" />
+    <Content Include="App_Data\Upload\Admin\Picture1.png" />
+    <Content Include="App_Data\Upload\Admin\YXZ0LmpwZw==.jpg" />
+    <Content Include="App_Data\Upload\Products\4ec3fc04c73b84b61ab9e4341a364975.jpg" />
+    <Content Include="App_Data\Upload\Products\506873be34bcfc3e305df08d06243285.png" />
+    <Content Include="App_Data\Upload\Products\8bdd29b6ef9cfe5d4639c09717d2cc5d.jpg" />
+    <Content Include="App_Data\Upload\Products\8c581916dfa8923d22ce24b316413a8d.jpg" />
+    <Content Include="App_Data\Upload\Products\a473fce4ea0fdccd9db68da03f3ab69b.jpg" />
+    <Content Include="App_Data\Upload\Products\bdc148320885648dd91b0d510a787c7b.jpg" />
+    <Content Include="App_Data\Upload\Products\c266e751e543ba6525b2a3a1a15d1176.jpg" />
+    <Content Include="App_Data\Upload\Products\c4ba11f89a82886689fc09f8fa58833c.jpg" />
+    <Content Include="App_Data\Upload\SingleProduct\027b6247f712eac84d9fc73d7fb85aec.jpg" />
+    <Content Include="App_Data\Upload\SingleProduct\13687cbc2ce9c92316fbc4d2aee5b1ce.jpg" />
+    <Content Include="App_Data\Upload\SingleProduct\2c4a291407e3a127b3990bfee3a75a59.png" />
+    <Content Include="App_Data\Upload\SingleProduct\43fc803f0120f214a684e995752a852c.jpg" />
+    <Content Include="App_Data\Upload\SingleProduct\4c69b9347eb89cac2245e260bb9835e7.png" />
+    <Content Include="App_Data\Upload\SingleProduct\4ec3fc04c73b84b61ab9e4341a364975.jpg" />
+    <Content Include="App_Data\Upload\SingleProduct\59e8961cc938cd509893316f4a7d8b19.jpg" />
+    <Content Include="App_Data\Upload\SingleProduct\7efafda1445b6c109438cb7a511f8e08.jpg" />
+    <Content Include="App_Data\Upload\SingleProduct\8377b01c0586cce7d1e6218eb3548869.png" />
+    <Content Include="App_Data\Upload\SingleProduct\8acc50c69c41fd6553b7149d524c8a14.png" />
+    <Content Include="App_Data\Upload\SingleProduct\8bdd29b6ef9cfe5d4639c09717d2cc5d.jpg" />
+    <Content Include="App_Data\Upload\SingleProduct\c93aa8b12375abdd6cee8f77264892a6.png" />
+    <Content Include="App_Data\Upload\SingleProduct\d55a0a8e70387956ad1043f29c2a3624.jpg" />
+    <Content Include="App_Data\Upload\SingleProduct\f93d0c9440e9833342154b38683dc8f9.png" />
+    <Content Include="App_Data\Upload\Users\05ddcc8d1620f4b5ef7127c3847985c4.jpg" />
+    <Content Include="App_Data\Upload\Users\06dcebd9f90705c52ddeffd39dd035df.jpg" />
+    <Content Include="App_Data\Upload\Users\1a34c5cbc6c876cf91ff1653c6d1d5cc.jpg" />
+    <Content Include="App_Data\Upload\Users\1b360dc6d1e366c0d79c8f6525ec0317%281%29.png" />
+    <Content Include="App_Data\Upload\Users\1b360dc6d1e366c0d79c8f6525ec0317.png" />
+    <Content Include="App_Data\Upload\Users\3c2d870755289c9d7565801ee055e558.jpg" />
+    <Content Include="App_Data\Upload\Users\dcff17b671e64b3d5cc23068c5f1ad24.jpg" />
+    <Content Include="App_Data\Upload\Users\e55a8b051f514c4de5f3c27768aadec7.jpg" />
+    <Content Include="Assets\Account\css\bootstrap.min.css" />
+    <Content Include="Assets\Account\css\custom.css" />
+    <Content Include="Assets\Account\css\plugins.css" />
+    <Content Include="Assets\Account\css\style.css" />
+    <Content Include="Assets\Account\fonts\Flaticon.svg" />
+    <Content Include="Assets\Account\fonts\slick.svg" />
+    <Content Include="Assets\Account\js\ajaxmail.js" />
+    <Content Include="Assets\Account\js\bootstrap.min.js" />
+    <Content Include="Assets\Account\js\google-map.js" />
+    <Content Include="Assets\Account\js\jquery.min.js" />
+    <Content Include="Assets\Account\js\jquery.ripples.min.js" />
+    <Content Include="Assets\Account\js\main.js" />
+    <Content Include="Assets\Account\js\modernizr-3.6.0.min.js" />
+    <Content Include="Assets\Account\js\plugins.js" />
+    <Content Include="Assets\Account\js\popper.min.js" />
+    <Content Include="Assets\Account\js\video-background.js" />
+    <Content Include="Assets\Admin\css\bootstrap.min.css" />
+    <Content Include="Assets\Admin\css\demo.css" />
+    <Content Include="Assets\Admin\css\material-dashboard.css" />
+    <Content Include="Assets\Admin\img\card-1.jpeg" />
+    <Content Include="Assets\Admin\img\card-2.jpeg" />
+    <Content Include="Assets\Admin\img\card-3.jpeg" />
+    <Content Include="Assets\Admin\img\default-avatar.png" />
+    <Content Include="Assets\Admin\img\faces\avatar.jpg" />
+    <Content Include="Assets\Admin\img\faces\card-profile1-square.jpg" />
+    <Content Include="Assets\Admin\img\faces\marc.jpg" />
+    <Content Include="Assets\Admin\img\flags\AU.png" />
+    <Content Include="Assets\Admin\img\flags\BR.png" />
+    <Content Include="Assets\Admin\img\flags\DE.png" />
+    <Content Include="Assets\Admin\img\flags\GB.png" />
+    <Content Include="Assets\Admin\img\flags\RO.png" />
+    <Content Include="Assets\Admin\img\flags\US.png" />
+    <Content Include="Assets\Admin\img\image_placeholder.jpg" />
+    <Content Include="Assets\Admin\img\placeholder.jpg" />
+    <Content Include="Assets\Admin\img\product1.jpg" />
+    <Content Include="Assets\Admin\img\product2.jpg" />
+    <Content Include="Assets\Admin\img\product3.jpg" />
+    <Content Include="Assets\Admin\img\sidebar-1.jpg" />
+    <Content Include="Assets\Admin\img\sidebar-2.jpg" />
+    <Content Include="Assets\Admin\img\sidebar-3.jpg" />
+    <Content Include="Assets\Admin\img\sidebar-4.jpg" />
+    <Content Include="Assets\Admin\js\Ajax.js" />
+    <Content Include="Assets\Admin\js\bootstrap-datetimepicker.js" />
+    <Content Include="Assets\Admin\js\bootstrap-notify.js" />
+    <Content Include="Assets\Admin\js\bootstrap.min.js" />
+    <Content Include="Assets\Admin\js\chartist.min.js" />
+    <Content Include="Assets\Admin\js\demo.js" />
+    <Content Include="Assets\Admin\js\fullcalendar.min.js" />
+    <Content Include="Assets\Admin\js\jasny-bootstrap.min.js" />
+    <Content Include="Assets\Admin\js\jquery-3.1.1.min.js" />
+    <Content Include="Assets\Admin\js\jquery-jvectormap.js" />
+    <Content Include="Assets\Admin\js\jquery-ui.min.js" />
+    <Content Include="Assets\Admin\js\jquery.bootstrap-wizard.js" />
+    <Content Include="Assets\Admin\js\jquery.datatables.js" />
+    <Content Include="Assets\Admin\js\jquery.fileupload.js" />
+    <Content Include="Assets\Admin\js\jquery.select-bootstrap.js" />
+    <Content Include="Assets\Admin\js\jquery.sharrre.js" />
+    <Content Include="Assets\Admin\js\jquery.tagsinput.js" />
+    <Content Include="Assets\Admin\js\jquery.validate.min.js" />
+    <Content Include="Assets\Admin\js\main.js" />
+    <Content Include="Assets\Admin\js\material-dashboard.js" />
+    <Content Include="Assets\Admin\js\material.min.js" />
+    <Content Include="Assets\Admin\js\moment.min.js" />
+    <Content Include="Assets\Admin\js\nouislider.min.js" />
+    <Content Include="Assets\Admin\js\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Assets\Admin\js\sweetalert2.js" />
+    <Content Include="Assets\Home\css\bootstrap.min.css" />
+    <Content Include="Assets\Home\css\font-awesome.min.css" />
+    <Content Include="Assets\Home\css\owl.carousel.css" />
+    <Content Include="Assets\Home\css\responsive.css" />
+    <Content Include="Assets\Home\css\style.css" />
+    <Content Include="Assets\Home\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\Home\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\Home\img\brand1.png" />
+    <Content Include="Assets\Home\img\brand2.png" />
+    <Content Include="Assets\Home\img\brand3.png" />
+    <Content Include="Assets\Home\img\brand4.png" />
+    <Content Include="Assets\Home\img\brand5.png" />
+    <Content Include="Assets\Home\img\brand6.png" />
+    <Content Include="Assets\Home\img\crossword.png" />
+    <Content Include="Assets\Home\img\h4-slide.png" />
+    <Content Include="Assets\Home\img\h4-slide2.png" />
+    <Content Include="Assets\Home\img\h4-slide3.png" />
+    <Content Include="Assets\Home\img\h4-slide4.png" />
+    <Content Include="Assets\Home\img\h4-slide7.png" />
+    <Content Include="Assets\Home\img\logo.png" />
+    <Content Include="Assets\Home\img\product-1.jpg" />
+    <Content Include="Assets\Home\img\product-2.jpg" />
+    <Content Include="Assets\Home\img\product-3.jpg" />
+    <Content Include="Assets\Home\img\product-4.jpg" />
+    <Content Include="Assets\Home\img\product-5.jpg" />
+    <Content Include="Assets\Home\img\product-6.jpg" />
+    <Content Include="Assets\Home\img\product-thumb-1.jpg" />
+    <Content Include="Assets\Home\img\product-thumb-2.jpg" />
+    <Content Include="Assets\Home\img\product-thumb-3.jpg" />
+    <Content Include="Assets\Home\img\product-thumb-4.jpg" />
+    <Content Include="Assets\Home\js\bxslider.min.js" />
+    <Content Include="Assets\Home\js\jquery.easing.1.3.min.js" />
+    <Content Include="Assets\Home\js\jquery.sticky.js" />
+    <Content Include="Assets\Home\js\main.js" />
+    <Content Include="Assets\Home\js\owl.carousel.min.js" />
+    <Content Include="Assets\Home\js\script.slider.js" />
+    <Content Include="App_Data\Upload\Admin\Thumbs.db" />
+    <Content Include="App_Data\Upload\Products\_DS_Store" />
+    <Content Include="App_Data\Upload\Users\_DS_Store" />
+    <Content Include="Areas\Admin\Views\Shared\Layout\_Dashboard.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Layout\_Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\addNew.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\listCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\listComments.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\profile.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Register.cshtml" />
+    <Content Include="Areas\Admin\Views\Discount\addNew.cshtml" />
+    <Content Include="Areas\Admin\Views\Discount\listDiscount.cshtml" />
+    <Content Include="Areas\Admin\Views\Image\addNew.cshtml" />
+    <Content Include="Areas\Admin\Views\Image\listImage.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\listOrder.cshtml" />
+    <Content Include="Areas\Admin\Views\Order_detail\detail.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\addNew.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\listPosts.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\addNew.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\listProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Review\listReviews.cshtml" />
+    <None Include="Connected Services\AddService\AddService.disco" />
+    <None Include="Connected Services\AddService\configuration91.svcinfo" />
+    <None Include="Connected Services\AddService\configuration.svcinfo" />
+    <None Include="Connected Services\AddService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\DeleteService\DeleteService.disco" />
+    <None Include="Connected Services\DeleteService\configuration91.svcinfo" />
+    <None Include="Connected Services\DeleteService\configuration.svcinfo" />
+    <None Include="Connected Services\DeleteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\EditService\EditService.disco" />
+    <None Include="Connected Services\EditService\configuration91.svcinfo" />
+    <None Include="Connected Services\EditService\configuration.svcinfo" />
+    <None Include="Connected Services\EditService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\LoginService\LoginService.disco" />
+    <None Include="Connected Services\LoginService\configuration91.svcinfo" />
+    <None Include="Connected Services\LoginService\configuration.svcinfo" />
+    <Content Include="Connected Services\LoginService\MobileStore.LoginService.LoginAdminResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\LoginService\MobileStore.LoginService.LoginUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\LoginService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\ViewService\MobileStore.ViewService.admin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ViewService\MobileStore.ViewService.category.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ViewService\MobileStore.ViewService.comment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ViewService\MobileStore.ViewService.discount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ViewService\MobileStore.ViewService.image.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ViewService\MobileStore.ViewService.order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ViewService\MobileStore.ViewService.post.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ViewService\MobileStore.ViewService.product.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ViewService\MobileStore.ViewService.review.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ViewService\MobileStore.ViewService.token.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ViewService\MobileStore.ViewService.user.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ViewService\MobileStore.ViewService.utoken.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ViewService\ViewService.disco" />
+    <None Include="Connected Services\ViewService\configuration91.svcinfo" />
+    <None Include="Connected Services\ViewService\configuration.svcinfo" />
+    <None Include="Connected Services\ViewService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Assets\Account\fonts\Flaticon.eot" />
+    <Content Include="Assets\Account\fonts\Flaticon.ttf" />
+    <Content Include="Assets\Account\fonts\Flaticon.woff" />
+    <Content Include="Assets\Account\fonts\Flaticon.woff2" />
+    <Content Include="Assets\Account\fonts\Flaticond41d.eot" />
+    <Content Include="Assets\Account\fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="Assets\Account\fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="Assets\Account\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <Content Include="Assets\Account\fonts\slick.eot" />
+    <Content Include="Assets\Account\fonts\slick.ttf" />
+    <Content Include="Assets\Account\fonts\slick.woff" />
+    <Content Include="Assets\Account\fonts\slickd41d.eot" />
+    <Content Include="Assets\Admin\img\Thumbs.db" />
+    <Content Include="Assets\Home\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\Home\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\Home\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\Home\fonts\FontAwesome.otf" />
+    <Content Include="Assets\Home\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Home\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\Home\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <None Include="Connected Services\DeleteService\DeleteService.wsdl" />
+    <None Include="Connected Services\DeleteService\DeleteService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\DeleteService\DeleteService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EditService\EditService.wsdl" />
+    <None Include="Connected Services\EditService\EditService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\EditService\EditService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LoginService\LoginService.wsdl" />
+    <None Include="Connected Services\LoginService\LoginService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LoginService\LoginService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\API\Index_admin.cshtml" />
+    <Content Include="Views\API\Index_category.cshtml" />
+    <Content Include="Views\API\Index_comment.cshtml" />
+    <Content Include="Views\API\Index_discount.cshtml" />
+    <Content Include="Views\API\Index_image.cshtml" />
+    <Content Include="Views\API\Index_order.cshtml" />
+    <Content Include="Views\API\Index_post.cshtml" />
+    <Content Include="Views\API\Index_product.cshtml" />
+    <Content Include="Views\API\Index_review.cshtml" />
+    <Content Include="Views\API\Index_token.cshtml" />
+    <Content Include="Views\API\Index_user.cshtml" />
+    <Content Include="Views\API\Index_utoken.cshtml" />
+    <Content Include="Views\Cart\CheckOut.cshtml" />
+    <Content Include="Views\Cart\DoneCheckOut.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Categories\Product.cshtml" />
+    <Content Include="Views\Customer\Deni.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
+    <Content Include="Views\Customer\Register.cshtml" />
+    <Content Include="Views\Detail\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\ListProduct\Index.cshtml" />
+    <Content Include="Views\ListProduct\Search.cshtml" />
+    <Content Include="Views\Shared\Layouts\_Account.cshtml" />
+    <Content Include="Views\Shared\Layouts\_Home.cshtml" />
+    <Content Include="Views\Shared\Layouts\_Service.cshtml" />
+    <None Include="Connected Services\ViewService\ViewService.wsdl" />
+    <None Include="Connected Services\ViewService\ViewService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ViewService\ViewService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ViewService\ViewService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AddService\AddService.wsdl" />
+    <None Include="Connected Services\AddService\AddService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AddService\AddService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AddService\" />
+    <WCFMetadataStorage Include="Connected Services\DeleteService\" />
+    <WCFMetadataStorage Include="Connected Services\EditService\" />
+    <WCFMetadataStorage Include="Connected Services\LoginService\" />
+    <WCFMetadataStorage Include="Connected Services\ViewService\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51938</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44304/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\MyWCFService\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\MyWCFService\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\MyWCFService\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\MyWCFService\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\MyWCFService\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\MyWCFService\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\MyWCFService\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\MyWCFService\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

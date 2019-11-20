@@ -1,10 +1,10 @@
-﻿using System;
+﻿using MyWCFService.Models.MyEditModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using MyWCFService.Models.MyEditModels;
 
 namespace MyWCFService.api
 {
